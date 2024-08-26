@@ -1,0 +1,24 @@
+sample_rate: 16000
+n_fft: 1024
+win_length: 640
+hop_length: 160
+mel_fmin: 10
+mel_fmax: null
+num_mels: 80
+max_pitch: 1199
+max_energy: 399
+
+model:
+  pitch_model:
+    _target_: robpitch.pitch.mel2pitch.model.Mel2PitchModel
+    predictor:
+      _target_: robpitch.pitch.base.modules.pitch_predictor.ConvPitchPredictor
+      num_pitch_classes: 1200
+      num_energy_classes: 400
+      input_dim: 80
+      hidden_dim: 512
+      num_layers: 4
+      kernel_size: 3
+      dropout_rate: 0.1
+      include_energy: true
+

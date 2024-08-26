@@ -1,0 +1,9 @@
+hydra-core==1.3.2
+numpy==1.24.3
+omegaconf==2.3.0
+setuptools==69.5.1
+soundfile==0.12.1
+soxr==0.3.7
+torch==2.0.1+cu118
+torchaudio==2.0.2+cu118
+tqdm==4.66.5

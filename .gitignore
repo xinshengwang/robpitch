@@ -1,0 +1,7 @@
+# user custom files
+.vscode
+.DS_Store
+
+__pycache__/
+MANIFEST
+*.bin
