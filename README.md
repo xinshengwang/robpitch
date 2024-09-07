@@ -4,27 +4,32 @@
 
 RobPitch is a pitch detection model trained to be robust against noise and reverberation environments. The model has been trained on 1600 hours of high-quality data, supplemented by an equivalent amount of simulated noisy and reverberant data, ensuring effective performance under challenging acoustic conditions.
 
-## Installation
+## Installation via pip
+
+Install RobPitch using the following command:
 
 ```
-pip install rob-pitch==0.1.0
+pip install rob-pitch==0.1.2
 ```
 
-## Model Download
+### Example of Usage
 
-We use modelscope to download pretrained model and config.
 ```
-Python
-from modelscope import snapshot_download
-model_dir = snapshot_download('pandamq/robpitch-16k')
-```
-Then copy the model to your local directory if you need.
-```
-shell
-cp -r ~/.cache/modelscope/hub/pandamq/robpitch-16k .
+import RobPitch
+
+ouputs = RobPitch('path/to/audio')
+
+pitch = outputs['pitch']
+feature = outputs['latent']
 ```
 
-## Usage Example
+## Local Setup
+
+### Model Download
+
+- Download the model from ![mdoel](https://modelscope.ai/models/pandamq/robpitch-16k)
+
+### Example of Local Usage
 
 ```
 import torch
@@ -39,8 +44,8 @@ device = torch.device("cpu")
 
 # Load model from checkpoint
 model = robpitch.load_from_checkpoint(
-    config_path="robpitch-16k/config.yaml",
-    ckpt_path="robpitch-16k/model.bin",
+    config_path="config.yaml",
+    ckpt_path="model.bin",
     device=device
 )
 
@@ -59,4 +64,4 @@ latent_feature = outputs['latent']
 
 ```
 
-For more detailed usage examples, refer to the exp/demo.ipynb notebook.
+For more detailed usage examples, refer to the ![exp/demo.ipynb](exp/demo.ipynb) notebook.

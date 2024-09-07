@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='rob_pitch',
-    version='0.1.0',
+    version='0.1.2',
     author='Xinsheng Wang, Mingqi Jiang',
     author_email='w.xinshawn@gmail.com, mingqi.jiang@mobvoi.com',
     packages=find_packages(),
